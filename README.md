@@ -33,6 +33,8 @@ server {
 
 - Build the image copying the configuration file(s)
 
+**NOTICE: Please use a tagged version for stability, latest tags are prone to change and might affect your running applications**
+
 ```docker
 FROM safesecurity/nginx-nchan:latest
 
