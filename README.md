@@ -1,6 +1,6 @@
 # Nchan Docker Image
 
-A dockerized Nginx image with Nchan module added
+A dockerized Nginx image configured with the Nchan module
 
 Nchan Documentation at: [Nchan.io](https://nchan.io/)
 
