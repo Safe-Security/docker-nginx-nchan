@@ -30,3 +30,7 @@ RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
 FROM nginx:1.19.6-alpine
 
 COPY --from=builder /usr/local/nginx/modules/ngx_nchan_module.so /usr/local/nginx/modules/ngx_nchan_module.so
+
+RUN rm -f /etc/nginx/conf.d/default.conf
+
+COPY nginx.conf /etc/nginx/

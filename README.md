@@ -38,8 +38,6 @@ server {
 ```docker
 FROM safesecurity/nginx-nchan:latest
 
-RUN rm -f /etc/nginx/conf.d/default.conf
-
 COPY nchan-example.conf /etc/nginx/conf.d/
 ```
 
@@ -49,7 +47,7 @@ COPY nchan-example.conf /etc/nginx/conf.d/
 
 - Run the image using
 
-`docker run -d --name rsyslog -p 80:80 my-nginx-image:latest`
+`docker run -d --name nginx -p 80:80 my-nginx-image:latest`
 
 - Publishing a message
 
