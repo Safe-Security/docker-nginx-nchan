@@ -31,6 +31,17 @@ FROM nginx:1.19.6-alpine
 
 COPY --from=builder /usr/local/nginx/modules/ngx_nchan_module.so /usr/local/nginx/modules/ngx_nchan_module.so
 
-RUN rm -f /etc/nginx/conf.d/default.conf
+RUN apk add --update \
+    apache2-utils \
+    bash \
+    apk-tools \
+    busybox \
+    curl \
+    libcurl \
+    libcrypto1.1 \
+    libssl1.1 \
+    libjpeg-turbo \
+    && rm -f /etc/nginx/conf.d/default.conf \
+    && rm -rf /var/cache/apk/*
 
 COPY nginx.conf /etc/nginx/
