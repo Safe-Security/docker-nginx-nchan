@@ -32,7 +32,7 @@ FROM nginx:1.19.6-alpine
 COPY --from=builder /usr/local/nginx/modules/ngx_nchan_module.so /usr/local/nginx/modules/ngx_nchan_module.so
 
 RUN apk add --update \
-    apache2-utils \
+    apache2-utils=2.4.53-r0 \
     bash \
     apk-tools \
     busybox \
