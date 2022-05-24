@@ -46,4 +46,4 @@ RUN apk add --update \
 
 COPY nginx.conf /etc/nginx/
 
-COPY nchan-example.conf /etc/nginx/conf.d/
+
