@@ -1,6 +1,6 @@
-FROM nginx:1.19.6-alpine AS builder
+FROM nginx:1.23.4-alpine AS builder
 
-ENV NCHAN_VERSION 1.2.5
+ENV NCHAN_VERSION 1.3.6
 
 RUN wget "http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz" -O nginx.tar.gz && \
     apk add --virtual .build-deps \
@@ -27,12 +27,12 @@ RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
     ./configure --with-compat $CONFARGS --add-dynamic-module=$NCHANDIR && \
     make && make install
 
-FROM nginx:1.19.6-alpine
+FROM nginx:1.23.4-alpine
 
 COPY --from=builder /usr/local/nginx/modules/ngx_nchan_module.so /usr/local/nginx/modules/ngx_nchan_module.so
 
 RUN apk add --update \
-    apache2-utils=2.4.53-r0 \
+    apache2-utils=2.4.56-r0 \
     bash \
     apk-tools \
     busybox \
