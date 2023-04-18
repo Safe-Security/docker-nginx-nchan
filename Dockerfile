@@ -1,4 +1,4 @@
-FROM nginx:1.19.6-alpine AS builder
+FROM nginx:1.24-alpine AS builder
 
 ENV NCHAN_VERSION 1.2.5
 
@@ -27,7 +27,7 @@ RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
     ./configure --with-compat $CONFARGS --add-dynamic-module=$NCHANDIR && \
     make && make install
 
-FROM nginx:1.19.6-alpine
+FROM nginx:1.24-alpine
 
 COPY --from=builder /usr/local/nginx/modules/ngx_nchan_module.so /usr/local/nginx/modules/ngx_nchan_module.so
 
