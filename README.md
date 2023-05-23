@@ -36,7 +36,7 @@ server {
 **NOTICE: Please use a tagged version for stability, latest tags are prone to change and might affect your running applications**
 
 ```docker
-FROM safesecurity/nginx-nchan:latest
+FROM darkflib/nginx-nchan:latest
 
 COPY nchan-example.conf /etc/nginx/conf.d/
 ```
